@@ -122,7 +122,13 @@
                     <a href="#" class="text-gray-200 hover:text-white transition">About us</a>
                     <a href="#" class="text-gray-200 hover:text-white transition">Contact us</a>
                 </div>
-                <a href="pages/login.html" class="text-gray-200 hover:text-white transition">Login/Register</a>
+                @auth('web')
+                    <a href="{{ route('logout') }}" class="text-gray-200 hover:text-white transition">Выйти {{ auth()->user()->name }}</a>
+                @endauth
+
+                @guest('web')
+                    <a href="{{ route('login') }}" class="text-gray-200 hover:text-white transition">Login</a>
+                @endguest
             </div>
         </div>
     </nav>

@@ -9,19 +9,27 @@
         <p class="text-gray-600 mb-6 text-sm">
             welcome back customer
         </p>
-        <form action="#" method="post" autocomplete="off">
+        <form action="{{ route('login_process') }}" method="post" autocomplete="off">
+            @csrf
+
             <div class="space-y-2">
                 <div>
                     <label for="email" class="text-gray-600 mb-2 block">Email address</label>
+                    @error('email')
+                        <label for="email" class="text-red-600 mb-2 block">{{ $message }}</label>
+                    @enderror
                     <input type="email" name="email" id="email"
                            class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                           placeholder="youremail.@domain.com">
+                           placeholder="youremail.@domain.com"
+                           value="{{ old('email') }}"
+                    >
                 </div>
                 <div>
                     <label for="password" class="text-gray-600 mb-2 block">Password</label>
                     <input type="password" name="password" id="password"
                            class="block w-full border border-gray-300 px-4 py-3 text-gray-600 text-sm rounded focus:ring-0 focus:border-primary placeholder-gray-400"
-                           placeholder="*******">
+                           placeholder="*******"
+                           value="{{ old('password') }}">
                 </div>
             </div>
             <div class="flex items-center justify-between mt-6">
@@ -51,9 +59,9 @@
         </div>
         <!-- ./login with -->
 
-        <p class="mt-4 text-center text-gray-600">Don't have account? <a href="register.html"
-                                                                         class="text-primary">Register
-                now</a></p>
+        <p class="mt-4 text-center text-gray-600">Don't have account?
+            <a href="{{ route('register') }}" class="text-primary">Register now</a>
+        </p>
     </div>
 </div>
 <!-- ./login -->

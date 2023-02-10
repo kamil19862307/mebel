@@ -31,9 +31,4 @@ class IndexController extends Controller
     {
         return view('profile');
     }
-
-    public function login()
-    {
-        return view('login');
-    }
 }
