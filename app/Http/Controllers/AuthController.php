@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ForgotFormRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('login');
+        return view('auth.login');
     }
 
     public function login(Request $request)
@@ -23,12 +24,12 @@ class AuthController extends Controller
             return redirect(route('home'));
         }
 
-        return redirect(route('login'))->withErrors(['email' => 'Пароль не найден, либо данные введены неправильно']);
+        return redirect(route('auth.login'))->withErrors(['email' => 'Пароль не найден, либо данные введены неправильно']);
     }
 
     public function showRegisterForm()
     {
-        return view('register');
+        return view('auth.register');
     }
 
     public function register(Request $request)
@@ -50,6 +51,28 @@ class AuthController extends Controller
         }
 
         return redirect(route('home'));
+    }
+
+    public function showForgotForm()
+    {
+        return view('auth.forgot');
+    }
+
+    public function forgot(ForgotFormRequest $request)
+    {
+        $data = $request->validated();
+
+        $user = User::where(['email' => $data['email']])->first();
+
+        $password_new = uniqid();
+
+        $user->password = bcrypt($password_new);
+
+        $user->save();
+
+        session()->flash('password_new', $password_new);
+
+        return redirect(route('forgot'));
     }
 
     public function logout()
