@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    public function livewire()
+    {
+        return view('livewire.lines');
+    }
+
     public function index()
     {
         return view('index');

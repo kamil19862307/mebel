@@ -14,11 +14,8 @@
                     Добавить товар
                 </button>
             </a>
-            @if(session()->has('edit_status'))
-                <span class="block sm:inline md:w-1/3 bg-green-300 mb-2 border border-green-300 text-green-600 px-4 py-3 rounded relative">
-                    {{ session('edit_status') }}
-                </span>
-            @endif
+
+               <x-alertMessage></x-alertMessage>
 
         </div>
         <div class="p-3">

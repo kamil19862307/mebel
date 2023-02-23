@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductFormRequest;
+use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -76,6 +77,8 @@ class ProductController extends Controller
             '1' => '1',
         ];
 
+        $product['color_arr'] = Color::all('name');
+
         // И ещё массив для категорий))
         $product['category_arr'] = [
             '0' => 'Диваны',
@@ -109,7 +112,7 @@ class ProductController extends Controller
 
         $product->update($data);
 
-        session()->flash('edit_status', 'Запись ' . $product->name . ' успешно отредактирована');
+        alert('Запись '. $product->name .' успешно отредактирована');
 
         return redirect(route('admin.products.index'));
     }

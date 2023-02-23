@@ -13,10 +13,15 @@
         }
     </style>
 
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
+
     @vite([
           'resources/css/admin/all.css',
           'resources/css/admin/styles.css',
     ])
+
+    @livewireStyles
 </head>
 <body>
 <!--Container -->
@@ -79,6 +84,14 @@
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-wpforms float-left mx-2"></i>
                             Forms
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ route('admin.colors.index') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-wpforms float-left mx-2"></i>
+                            Colors
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
@@ -166,6 +179,7 @@
 
 </div>
 
+{{--Script for show/hide sidebar and user menu--}}
 <script>
     var sidebar = document.getElementById('sidebar');
 
@@ -219,6 +233,19 @@
         });
     }
 </script>
+
+@livewireScripts
+
+{{--Script for hide flash allerts--}}
+<script>
+var alert_del = document.querySelectorAll('.alert-del');
+alert_del.forEach((x) =>
+x.addEventListener('click', function () {
+x.parentElement.classList.add('hidden');
+})
+);
+</script>
+
 </body>
 
 </html>

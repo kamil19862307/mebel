@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\AdminUser;
+use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,9 @@ class DatabaseSeeder extends Seeder
         Product::factory(30)->create([
             'image' => '/product1.jpg',
         ]);
+
+        Color::factory(10)->create();
+
 
         AdminUser::factory(1)->create([
             'name' => 'admin',

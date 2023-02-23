@@ -146,11 +146,13 @@
                             <div class="relative">
                                 <select name="color" class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey"
                                         id="grid-color">
-                                    <option value="{{ $product->color }}">{{ $product->color }}</option>
-                                    <option value="white">Белый</option>
-                                    <option value="blue">Синий</option>
-                                    <option value="red">Крассный</option>
-                                    <option value="black">Чёный</option>
+
+                                    @foreach ($product->color_arr as $color)
+                                        <option value="{{ $color['name'] }}" @selected($product->color == $color['name'])>
+                                            {{ $color['name'] }}
+                                        </option>
+                                    @endforeach
+
                                 </select>
                                 @error('color')
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
@@ -200,9 +202,9 @@
                         <button type="submit" class="bg-transparent hover:bg-green-500 text-green-dark font-semibold hover:text-white py-2 px-4 border border-green hover:border-transparent rounded">
                             Сохранить
                         </button>
-                        <button type="reset" class="bg-transparent hover:bg-red-500 text-red-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
-                            Сбросить
-                        </button>
+
+                        <x-resetButton></x-resetButton>
+
                         <a href="{{ route('admin.products.index') }}">
                             <button type="button" class="bg-transparent hover:bg-red-500 text-red-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
                                 Отменить

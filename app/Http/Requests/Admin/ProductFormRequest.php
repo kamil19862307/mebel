@@ -28,7 +28,7 @@ class ProductFormRequest extends FormRequest
             'active' =>['required', 'boolean'],
             'price' =>['required', 'integer'],
             'category' =>['required', 'string'],
-            'description' =>['required', 'string', 'min:5', 'max:500'],
+            'description' =>['required', 'string', 'min:5', 'max:1000'],
             'image' =>['image'],
             'size' =>['required', 'max:50'],
             'color' =>['required', 'max:50'],
