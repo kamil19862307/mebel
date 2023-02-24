@@ -57,11 +57,14 @@ class ColorController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $color = Color::findOrfail($id);
+
+        return view('admin.colors.edit', [
+            'color' => $color,
+        ]);
     }
 
     /**
@@ -69,11 +72,16 @@ class ColorController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ColorFormRequest $request, $id)
     {
-        //
+        $color = Color::findOrFail($id);
+
+        $color->update($request->validated());
+
+        alert('Цвет успешно изменён');
+
+        return redirect(route('admin.colors.index'));
     }
 
     /**

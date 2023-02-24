@@ -20,10 +20,12 @@
                     <div class="flex items-center border-b border-b-1 border-teal-500 py-2">
                         <input class="appearance-none bg-transparent border-none w-full text-gray-600 mr-3 py-1 px-2 lineHeight-tight focus:outline-none"
                                type="text" value="{{ $color->name }}" aria-label="Full name">
-                        <button class="flex-shrink-0 bg-green-500 hover:bg-green-700 border-green-500 hover:border-white text-sm border-4 text-white py-1 px-2 mx-2 rounded"
-                                type="button">
-                            Изменить
-                        </button>
+                        <a href="{{ route('admin.colors.edit', $color->id) }}">
+                            <button class="flex-shrink-0 bg-green-500 hover:bg-green-700 border-green-500 hover:border-white text-sm border-4 text-white py-1 px-2 mx-2 rounded"
+                                    type="button">
+                                Изменить
+                            </button>
+                        </a>
                         <button data-modal='toppedModal{{ $color->id }}' class="modal-trigger flex-shrink-0 bg-red-500 hover:bg-red-700 border-red-500 hover:border-white text-sm border-4 text-white py-1 px-2 mx-2 rounded"
                                 type="button">
                             Удалить
