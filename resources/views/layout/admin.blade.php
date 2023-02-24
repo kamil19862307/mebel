@@ -88,13 +88,22 @@
                             <span><i class="fas fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                    <li class=" w-full h-full py-3 px-2 border-b border-light-border {{ active_link('admin.products.index') }}">
+                    <li class=" w-full h-full py-3 px-2 border-b border-light-border {{ active_link('admin.products*') }}">
                         <a href="{{ route('admin.products.index') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-folder-open float-left mx-2"></i>
                             Все товары
                             <span><i class="fas fa-angle-right float-right"></i></span>
                         </a>
+                        <ul class="list-reset -mx-2 bg-white-medium-dark">
+                            <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3 {{ active_link('admin.products.create') }}">
+                                <a href="{{ route('admin.products.create') }}"
+                                   class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                    Добавить товар
+                                    <span><i class="fa fa-angle-right float-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="forms.html"
@@ -104,13 +113,22 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                    <li class="w-full h-full py-3 px-2 border-b border-light-border {{ active_link('admin.colors.index') }}">
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border {{ active_link('admin.colors*') }}">
                         <a href="{{ route('admin.colors.index') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-wpforms float-left mx-2"></i>
                             Цвета
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
+                        <ul class="list-reset -mx-2 bg-white-medium-dark">
+                            <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3 {{ active_link('admin.colors.create') }}">
+                                <a href="{{ route('admin.colors.create') }}"
+                                   class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                    Добавить цвет
+                                    <span><i class="fa fa-angle-right float-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="buttons.html"

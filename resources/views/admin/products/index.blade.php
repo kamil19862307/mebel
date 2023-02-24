@@ -9,11 +9,9 @@
     <div class="mb-2 border-solid border-gray-300 rounded border shadow-sm w-full">
         <div class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b">
             Список товаров
-            <a href="{{ route('admin.products.create') }}">
-                <button class="bg-transparent hover:bg-green-500 text-green-dark font-semibold hover:text-white py-2 px-4 border border-green hover:border-transparent rounded">
-                    Добавить товар
-                </button>
-            </a>
+            <x-add-button route="admin.products.create">
+                Длбавить товар
+            </x-add-button>
 
                <x-alertMessage></x-alertMessage>
 
@@ -58,11 +56,12 @@
                                class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white">
                                 <i class="fas fa-edit"></i></a>
 
+                            {{--Удаление--}}
                             <button data-modal='toppedModal{{ $product->id }}' class="modal-trigger bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500">
                                 <i class="fas fa-trash"></i>
                             </button>
 
-                            <!-- Topped Modal -->
+                            <!-- Topped Destroy Modal -->
                             <div id='toppedModal{{ $product->id }}' class="modal-wrapper">
                                 <div class="overlay close-modal"></div>
                                 <div class="modal">

@@ -124,6 +124,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        $product = Product::findOrFail($id);
+
+        alert('Запись '. $product->name .' успешно удалена');
+
         Product::destroy($id);
 
         return back();
