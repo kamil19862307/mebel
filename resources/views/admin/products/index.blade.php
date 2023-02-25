@@ -10,10 +10,10 @@
         <div class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b">
             Список товаров
             <x-add-button route="admin.products.create">
-                Длбавить товар
+                Добавить товар
             </x-add-button>
 
-               <x-alertMessage></x-alertMessage>
+           <x-alertMessage></x-alertMessage>
 
         </div>
         <div class="p-3">
