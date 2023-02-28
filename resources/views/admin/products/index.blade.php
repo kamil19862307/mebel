@@ -37,7 +37,11 @@
                         <td class="border px-4 py-2">{{ $product->id }}</td>
                         <td class="border px-4 py-2">{{ $product->name }}</td>
                         <td class="border px-4 py-2">{{ $product->category }}</td>
-                        <td class="border px-4 py-2">{{ $product->color }}</td>
+                        @foreach($colors as $color)
+                            @if($product->color_id == $color->id)
+                                <td class="border px-4 py-2">{{ $color->name }}</td>
+                            @endif
+                        @endforeach
                         <td class="border px-4 py-2">{{ $product->price }} $</td>
                         <td class="border px-4 py-2">
 

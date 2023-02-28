@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
           integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
           crossorigin="anonymous">
-    <style>
-        .login {
-            background: url('/storage/images/login-new.jpeg')
-        }
-    </style>
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
     <script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>
@@ -199,10 +194,18 @@
             <!--/Sidebar-->
 
 
-            @yield('content')
+            {{--Main content--}}
+            <main class="bg-white-medium flex-1 p-3 overflow-hidden">
+                <div class="flex flex-col">
 
+                    @yield('content')
 
+                </div>
+            </main>
+            {{--/Main content--}}
         </div>
+
+
         <!--Footer-->
         <footer class="bg-grey-darkest text-white p-2">
             <div class="flex flex-1 mx-auto">&copy; My Design</div>

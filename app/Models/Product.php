@@ -13,12 +13,25 @@ class Product extends Model
         'name',
         'active',
         'price',
-        'category',
+        'category_id',
         'description',
         'image',
         'size',
-        'color',
+        'color_id',
         'material',
         'weight',
     ];
+
+
+    public function color()
+    {
+        return $this->belongsTo(Color::class);
+    }
+
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
 }

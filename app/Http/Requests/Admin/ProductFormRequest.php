@@ -31,7 +31,7 @@ class ProductFormRequest extends FormRequest
             'description' =>['required', 'string', 'min:5', 'max:1000'],
             'image' =>['image'],
             'size' =>['required', 'max:50'],
-            'color' =>['required', 'max:50'],
+            'color_id' =>['required', 'integer'],
             'material' =>['required', 'string', 'max:50'],
             'weight' =>['required', 'max:50'],
         ];

@@ -13,5 +13,15 @@ class AdminUser extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
     ];
+
+    /*
+     * Получить телефон связанный с пользователем
+     */
+
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
 }

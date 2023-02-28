@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('image');
             $table->integer('size')->nullable();
-            $table->string('color')->nullable();
+            $table->foreignId('color_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('material')->nullable();
             $table->string('weight')->nullable();
 

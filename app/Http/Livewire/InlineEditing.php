@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Color;
-use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductFormRequest;
+use App\Models\AdminUser;
 use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -16,10 +17,13 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $colors = Color::all();
+
         $products = Product::orderBy('created_at', 'DESC')->paginate(10);
 
         return view('admin.products.index', [
             'products' => $products,
+            'colors' => $colors,
         ]);
     }
 
@@ -29,7 +33,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $colors = Color::all();
+
+        return view('admin.products.create', [
+            'colors' => $colors,
+            ]);
     }
 
     /**
@@ -77,7 +85,7 @@ class ProductController extends Controller
             '1' => '1',
         ];
 
-        $product['color_arr'] = Color::all('name');
+        $product['color_arr'] = Color::all();
 
         // И ещё массив для категорий))
         $product['category_arr'] = [

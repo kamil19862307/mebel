@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\AdminUser;
 use App\Models\Color;
+use App\Models\Phone;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
 
@@ -24,6 +25,9 @@ class DatabaseSeeder extends Seeder
 
         Color::factory(10)->create();
 
+        Phone::factory(10)->create([
+            'admin_user_id' => 1,
+        ]);
 
         AdminUser::factory(1)->create([
             'name' => 'admin',

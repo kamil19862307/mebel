@@ -144,17 +144,17 @@
                                 Цвет
                             </label>
                             <div class="relative">
-                                <select name="color" class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                                <select name="color_id" class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey"
                                         id="grid-color">
 
                                     @foreach ($product->color_arr as $color)
-                                        <option value="{{ $color['name'] }}" @selected($product->color == $color['name'])>
+                                        <option value="{{ $color['id'] }}" @selected($product->color_id == $color['id'])>
                                             {{ $color['name'] }}
                                         </option>
                                     @endforeach
 
                                 </select>
-                                @error('color')
+                                @error('color_id')
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                                 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-grey-darker">

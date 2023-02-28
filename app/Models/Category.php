@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Color extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,7 @@ class Color extends Model
         'name',
     ];
 
-    public function product()
-    {
-        return $this->hasMany(Product::class);
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
 }
