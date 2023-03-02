@@ -13,13 +13,14 @@ class Product extends Model
         'name',
         'active',
         'price',
-        'category_id',
-        'description',
-        'image',
-        'size',
         'color_id',
+        'brand_id',
+        'category_id',
+        'size',
         'material',
         'weight',
+        'description',
+        'image',
     ];
 
 
@@ -32,6 +33,11 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
     }
 
 }

@@ -20,11 +20,11 @@ class ProductFactory extends Factory
             'name' => fake()->name(),
             'active' => fake()->boolean(80),
             'price' => fake()->numberBetween(100, 1000),
-            'category' => fake()->word(),
+            'category_id' => fake()->numberBetween(1, 10),
             'description' => fake()->text(671),
             'image' => fake()->word(),
             'size' => fake()->numberBetween(10, 100),
-            'color' => fake()->colorName(),
+            'color_id' => fake()->numberBetween(1, 10),
             'material' => fake()->company(),
             'weight' => fake()->numberBetween(50, 200),
         ];

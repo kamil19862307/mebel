@@ -125,6 +125,40 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border {{ active_link('admin.categories*') }}">
+                        <a href="{{ route('admin.categories.index') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-wpforms float-left mx-2"></i>
+                            Категории
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                        <ul class="list-reset -mx-2 bg-white-medium-dark">
+                            <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3 {{ active_link('admin.categories.create') }}">
+                                <a href="{{ route('admin.categories.create') }}"
+                                   class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                    Добавить категорию
+                                    <span><i class="fa fa-angle-right float-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border {{ active_link('admin.brands*') }}">
+                        <a href="{{ route('admin.brands.index') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-wpforms float-left mx-2"></i>
+                            Бренды
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                        <ul class="list-reset -mx-2 bg-white-medium-dark">
+                            <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3 {{ active_link('admin.brands.create') }}">
+                                <a href="{{ route('admin.brands.create') }}"
+                                   class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                    Добавить Бренд
+                                    <span><i class="fa fa-angle-right float-right"></i></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="buttons.html"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\AdminUser;
+use App\Models\Category;
 use App\Models\Color;
 use App\Models\Phone;
 use App\Models\Product;
@@ -19,15 +20,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        Product::factory(30)->create([
-            'image' => '/product1.jpg',
-        ]);
-
-        Color::factory(10)->create();
-
-        Phone::factory(10)->create([
-            'admin_user_id' => 1,
-        ]);
+//        Product::factory(30)->create([
+//            'image' => '/product1.jpg',
+//        ]);
+//
+//        Color::factory(10)->create();
+//
+//        Category::factory(10)->create();
+//
+//        Phone::factory(10)->create([
+//            'admin_user_id' => 1,
+//        ]);
 
         AdminUser::factory(1)->create([
             'name' => 'admin',

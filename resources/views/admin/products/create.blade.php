@@ -21,6 +21,7 @@
                                 First Name
                             </label>
                             <input name="name"
+                                   value="{{ old('name') }}"
                                    class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500"
                                    id="grid-first-name" type="text" placeholder="Name">
                             @error('name')
@@ -89,6 +90,7 @@
                                 Weight
                             </label>
                             <input name="weight"
+                                   value="{{ old('weight') }}"
                                    class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
                                    id="grid-city" type="text" placeholder="Weight">
                             @error('weight')
@@ -101,15 +103,16 @@
                                 Категория
                             </label>
                             <div class="relative">
-                                <select name="category"
+                                <select name="category_id"
                                         class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey"
-                                        id="grid-state">
-                                    <option>Диваны</option>
-                                    <option>Столы</option>
-                                    <option>Кресла</option>
-                                    <option>Кровати</option>
+                                        id="grid-category">
+
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+
                                 </select>
-                                @error('category')
+                                @error('category_id')
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                                 @enderror
                                 <div
@@ -128,6 +131,7 @@
                                 Price
                             </label>
                             <input name="price"
+                                   value="{{ old('price') }}"
                                    class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
                                    id="grid-zip" type="text" placeholder="Price">
                             @error('price')
@@ -143,6 +147,7 @@
                                 Size
                             </label>
                             <input name="size"
+                                   value="{{ old('size') }}"
                                    class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
                                    id="grid-zip" type="text" placeholder="Size">
                             @error('size')
@@ -155,6 +160,7 @@
                                 Material
                             </label>
                             <input name="material"
+                                   value="{{ old('material') }}"
                                    class="appearance-none block w-full bg-grey-200 text-grey-darker border border-grey-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-grey"
                                    id="grid-zip" type="text" placeholder="material">
                             @error('material')
@@ -163,12 +169,33 @@
                         </div>
                         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-grey-darker text-xs font-light mb-1"
-                                   for="grid-zip">
-                                <p class="text-red-500 text-xs italic">Товар будет доступен для просмотра на сайте,
-                                    только
-                                    если он со статусом "Активный"</p>
+                                   for="grid-state">
+                                Бренд
                             </label>
+                            <div class="relative">
+                                <select name="brand_id"
+                                        class="block appearance-none w-full bg-grey-200 border border-grey-200 text-grey-darker py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-grey"
+                                        id="grid-brand">
+
+                                    @foreach($brands as $brand)
+                                        <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                                    @endforeach
+
+                                </select>
+                                @error('brand_id')
+                                <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                                @enderror
+                                <div
+                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-grey-darker">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                     <div class="flex flex-wrap -mx-3 md:w-1/1 mb-6">
                         <div class="w-full px-3">
@@ -180,7 +207,7 @@
                                       id="grid-textarea"
                                       class="appearance-none block w-full bg-grey-200 text-grey-darker
                                        border border-grey-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none
-                                       focus:bg-white focus:border-grey"></textarea>
+                                       focus:bg-white focus:border-grey">{{ old('description') }}</textarea>
                             @error('description')
                             <p class="text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror

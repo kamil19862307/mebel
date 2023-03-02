@@ -1,27 +1,27 @@
 @extends('layout.admin')
-@section('title', 'Добавить товар | Mebel Admin')
+@section('title', 'Добавить категорию | Mebel Admin')
 @section('content')
 
 
-    <!--Grid Form-->
+    <!--Add category Form-->
 
     <div class="flex flex-1  flex-col md:flex-row lg:flex-row mx-2">
         <div class="mb-2 border-solid border-gray-300 rounded border shadow-sm w-full">
             <div class="bg-gray-200 px-2 py-3 border-solid border-gray-200 border-b">
-                Добавить цвет
+                Добавить категорию
             </div>
             <div class="p-3">
-                <form method="POST" action="{{ route('admin.colors.store') }}" enctype="multipart/form-data" class="w-full">
+                <form method="POST" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data" class="w-full">
                     @csrf
 
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-light mb-1"
                                    for="grid-first-name">
-                                Color Name
+                                Category Name
                             </label>
                             <input name="name" class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white-500"
-                                   id="grid-first-name" type="text" placeholder="Color" autofocus>
+                                   id="grid-first-name" type="text" placeholder="Category" autofocus>
                             @error('name')
                                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
                             @enderror
@@ -35,7 +35,7 @@
                             <button type="reset" class="bg-transparent hover:bg-red-500 text-red-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
                                 Сбросить
                             </button>
-                            <a href="{{ route('admin.colors.index') }}">
+                            <a href="{{ route('admin.categories.index') }}">
                                 <button type="button" class="bg-transparent hover:bg-red-500 text-red-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded">
                                     Отменить
                                 </button>
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <!--/Grid Form-->
+    <!--/Add category Form-->
 
 
 @endsection

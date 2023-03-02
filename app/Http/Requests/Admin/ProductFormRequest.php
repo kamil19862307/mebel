@@ -27,13 +27,14 @@ class ProductFormRequest extends FormRequest
             'name' => ['required', 'max:35'],
             'active' =>['required', 'boolean'],
             'price' =>['required', 'integer'],
-            'category' =>['required', 'string'],
+            'color_id' =>['required', 'integer'],
+            'brand_id' =>['required', 'integer'],
+            'category_id' =>['required', 'integer'],
+            'weight' =>['required', 'max:50'],
+            'size' =>['required', 'max:50'],
+            'material' =>['required', 'string', 'max:50'],
             'description' =>['required', 'string', 'min:5', 'max:1000'],
             'image' =>['image'],
-            'size' =>['required', 'max:50'],
-            'color_id' =>['required', 'integer'],
-            'material' =>['required', 'string', 'max:50'],
-            'weight' =>['required', 'max:50'],
         ];
     }
 }

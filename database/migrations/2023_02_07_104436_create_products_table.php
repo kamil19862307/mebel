@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('name');
             $table->boolean('active');
             $table->integer('price');
-            $table->string('category');
+            $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('description');
             $table->text('image');
             $table->integer('size')->nullable();
             $table->foreignId('color_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('brand_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('material')->nullable();
             $table->string('weight')->nullable();
 

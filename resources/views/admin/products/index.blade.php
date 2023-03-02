@@ -21,10 +21,11 @@
                 <thead>
                 <tr>
                     <th class="border w-1/8 px-4 py-2">Id</th>
-                    <th class="border w-1/4 px-4 py-2">Product Name</th>
+                    <th class="border w-1/6 px-4 py-2">Product Name</th>
                     <th class="border w-1/6 px-4 py-2">Category</th>
                     <th class="border w-1/6 px-4 py-2">Color</th>
-                    <th class="border w-1/7 px-4 py-2">Price</th>
+                    <th class="border w-1/6 px-4 py-2">Brand</th>
+                    <th class="border w-1/6 px-4 py-2">Price</th>
                     <th class="border w-1/7 px-4 py-2">Status</th>
                     <th class="border w-1/5 px-4 py-2">Actions</th>
                 </tr>
@@ -36,10 +37,19 @@
                     <tr>
                         <td class="border px-4 py-2">{{ $product->id }}</td>
                         <td class="border px-4 py-2">{{ $product->name }}</td>
-                        <td class="border px-4 py-2">{{ $product->category }}</td>
+                        @foreach($categories as $category)
+                            @if($product->category_id == $category->id)
+                                <td class="border px-4 py-2">{{ $category->name }}</td>
+                            @endif
+                        @endforeach
                         @foreach($colors as $color)
                             @if($product->color_id == $color->id)
                                 <td class="border px-4 py-2">{{ $color->name }}</td>
+                            @endif
+                        @endforeach
+                        @foreach($brands as $brand)
+                            @if($product->brand_id == $brand->id)
+                                <td class="border px-4 py-2">{{ $brand->name }}</td>
                             @endif
                         @endforeach
                         <td class="border px-4 py-2">{{ $product->price }} $</td>
@@ -99,7 +109,7 @@
 
                 @endforeach
                 <tr>
-                    <td colspan="7" class="border px-4 py-2"> {{ $products->links() }} </td>
+                    <td colspan="8" class="border px-4 py-2"> {{ $products->links() }} </td>
                 </tr>
                 </tbody>
             </table>

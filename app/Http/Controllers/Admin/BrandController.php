@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CategoryFormRequest;
-use App\Models\Category;
+use App\Http\Requests\Admin\BrandFormRequest;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('created_at', 'DESC')->limit(100)->get();
+        $brands = Brand::orderBy('created_at', 'DESC')->get();
 
-        return view('admin.categories.index', [
-            'categories' => $categories,
+        return view('admin.brands.index', [
+            'brands' => $brands,
         ]);
     }
 
@@ -28,7 +28,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.brands.create');
     }
 
     /**
@@ -36,20 +36,20 @@ class CategoryController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      */
-    public function store(CategoryFormRequest $request)
+    public function store(BrandFormRequest $request)
     {
-        Category::create($request->validated());
+        Brand::create($request->validated());
 
-        return redirect(route('admin.categories.index'));
+        return view('admin.brands.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(brand $brand)
     {
         //
     }
@@ -57,10 +57,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(brand $brand)
     {
         //
     }
@@ -69,10 +69,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\brand  $brand
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, brand $brand)
     {
         //
     }
@@ -84,12 +84,12 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
+        $brand = Brand::findOrFail($id);
 
-        alert('Запись '. $category->name .' успешно удалена');
+        alert('Запись '. $brand->name .' успешно удалена');
 
-        Category::destroy($id);
+        Brand::destroy($id);
 
-        return redirect(route('admin.categories.index'));
+        return back();
     }
 }

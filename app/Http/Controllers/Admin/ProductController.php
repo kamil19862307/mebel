@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\ProductFormRequest;
 use App\Models\AdminUser;
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Color;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -18,12 +20,16 @@ class ProductController extends Controller
     public function index()
     {
         $colors = Color::all();
+        $brands = Brand::all();
+        $categories = Category::all();
 
         $products = Product::orderBy('created_at', 'DESC')->paginate(10);
 
         return view('admin.products.index', [
             'products' => $products,
             'colors' => $colors,
+            'brands' => $brands,
+            'categories' => $categories,
         ]);
     }
 
@@ -34,9 +40,13 @@ class ProductController extends Controller
     public function create()
     {
         $colors = Color::all();
+        $brands = Brand::all();
+        $categories = Category::all();
 
         return view('admin.products.create', [
             'colors' => $colors,
+            'brands' => $brands,
+            'categories' => $categories,
             ]);
     }
 
@@ -79,7 +89,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        // Для 'active' селекта временный массив (нужно будет в базе сделать отдельную таблицу)
+        // Для 'active' селекта временный массив (нужно будет в базе сделать отдельную таблицу)?
         $product['active_arr'] = [
             '0' => '0',
             '1' => '1',
@@ -87,14 +97,7 @@ class ProductController extends Controller
 
         $product['color_arr'] = Color::all();
 
-        // И ещё массив для категорий))
-        $product['category_arr'] = [
-            '0' => 'Диваны',
-            '1' => 'Столы',
-            '2' => 'Кресла',
-            '3' => 'Кровати',
-            '4' => 'Стулья',
-        ];
+        $product['category_arr'] = Category::all();
 
         return view('admin.products.edit', [
             'product' => $product,
