@@ -18,13 +18,16 @@ return new class extends Migration
 
             $table->string('name');
             $table->boolean('active');
-            $table->integer('price');
-            $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->double('price', 12, 2)->default(0);
+            $table->unsignedBigInteger('category_id');
+            $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnDelete();
             $table->text('description');
             $table->text('image');
             $table->integer('size')->nullable();
-            $table->foreignId('color_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('brand_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->unsignedBigInteger('color_id');
+            $table->foreignId('color_id')->references('id')->on('colors')->cascadeOnDelete();
+            $table->unsignedBigInteger('brand_id');
+            $table->foreignId('brand_id')->references('id')->on('brands')->cascadeOnDelete();
             $table->string('material')->nullable();
             $table->string('weight')->nullable();
 
